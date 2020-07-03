@@ -8,37 +8,26 @@ use App\Models\PertanyaanModel;
 class PertanyaanController extends Controller
 {
      
-    public function pertanyaan()
+    public function index()
     {
-        // $pertanyaan = PertanyaanModel::get_all();
-        // return view('pertanyaan', compact('pertanyaan'));
-        return view('pertanyaan');
-    }
-
-    public function pertanyaan_post(Request $request)
-    {
-        $data = $request->all;
-        unset($data['_token']);
-        dd($data);
-        $pertanyaan = PertanyaanModel::save($data);
-        if($pertanyaan){
-            return view('pertanyaan');
-        }
+        $pertanyaan = PertanyaanModel::get_all();
+        return view('pertanyaan', compact('pertanyaan'));
     }
 
     public function create()
     {
-        # code...
+        return view('create');
     }
 
-    public function jawaban()
+    public function store(Request $request)
     {
-        # code...
-    }
-
-    public function jawaban_post()
-    {
-        # code...
+        $data = $request->all();
+        unset($data['_token']);
+        // dd($data);
+        $pertanyaan = PertanyaanModel::save($data);
+        if($pertanyaan){
+            return redirect('/pertanyaan');
+        }
     }
     
 }

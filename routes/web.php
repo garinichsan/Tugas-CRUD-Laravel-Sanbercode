@@ -11,11 +11,11 @@
 |
 */
 
-Route::get('/', 'HomeController@home' );
+Route::get('/', 'PertanyaanController@index' );
 
-Route::get('/pertanyaan', 'PertanyaanController@pertanyaan' );
-Route::get('/pertanyaan/create', 'QnaController@create' );
-Route::post('/pertanyaan', 'QnaController@pertanyaan_post' );
-Route::get('/jawaban', 'QnaController@jawaban' );
-Route::post('/jawaban', 'QnaController@jawaban_post' );
+Route::get('/pertanyaan', 'PertanyaanController@index' );
+Route::get('/pertanyaan/create', 'PertanyaanController@create' );
+Route::post('/pertanyaan', 'PertanyaanController@store' );
+Route::get('/jawaban/{id}', 'JawabanController@index' );
+Route::post('/jawaban/{id}', 'JawabanController@store' );
 

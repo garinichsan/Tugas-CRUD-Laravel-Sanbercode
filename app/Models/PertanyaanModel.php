@@ -5,12 +5,18 @@ use Illuminate\Support\Facades\DB;
 
 class PertanyaanModel {
     public static function get_all(){
-        $pertanyaan -> DB::table('pertanyaan')->get();
+        $pertanyaan = DB::table('pertanyaan')->get();
         return $pertanyaan;
     }
 
     public static function save($data){
-        $pertanyaan -> DB::table('pertanyaan')->insert($data);
+        $pertanyaan = DB::table('pertanyaan')->insert($data);
+        return $pertanyaan;
+    }
+
+    public static function find_by_id($id)
+    {
+        $pertanyaan = DB::table('pertanyaan')->where('id','=',$id)->first();
         return $pertanyaan;
     }
 }

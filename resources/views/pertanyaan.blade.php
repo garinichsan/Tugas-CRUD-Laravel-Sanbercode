@@ -2,31 +2,28 @@
 
 @section('content')
 
-<table class="table">
-    <thead>
-      <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
-    </tbody>
-  </table>
+<a class="btn btn-primary m-3" href="/pertanyaan/create"> <i class="nav-icon fas fa-edit"></i> Ajukan Pertanyaan </a>
+
+<table class="table table-hover text-nowrap">
+  <thead>
+    <tr>
+      <th width="20%">Judul Pertanyaan</th>
+      <th>Isi Pertanyaan</th>
+      <th width="10%">Jawaban</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach ($pertanyaan as $key => $item)
+        
+    <tr>
+      <td>{{ $item -> judul }}</td>
+      <td>{{ $item -> isi }}</td>
+      <td><a href="/jawaban/{{ $item -> id }} " class="btn btn-primary">Show <i class="right fas fa-angle-right"></i> </a></td>
+    </tr>
+    
+    @endforeach
+  </tbody>
+</table>
+
 
 @endsection
