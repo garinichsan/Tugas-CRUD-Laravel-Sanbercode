@@ -51,4 +51,10 @@ class PertanyaanController extends Controller
             return $this->show($id);
         }
     }
+
+    public function delete($id)
+    {
+        $hapus = PertanyaanModel::destroy($id);
+        return redirect("/pertanyaan");
+    }
 }

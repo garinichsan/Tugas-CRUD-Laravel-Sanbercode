@@ -30,4 +30,12 @@ class PertanyaanModel {
                         ]);
         return $pertanyaan;
     }
+
+    public static function destroy($id)
+    {
+        $pertanyaan = DB::table('pertanyaan')
+                        ->where('id',$id)
+                        ->delete();
+        return $pertanyaan;
+    }
 }
