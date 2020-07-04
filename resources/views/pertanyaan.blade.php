@@ -4,12 +4,12 @@
 
 <a class="btn btn-primary m-3" href="/pertanyaan/create"> <i class="nav-icon fas fa-edit"></i> Ajukan Pertanyaan </a>
 
-<table class="table table-hover text-nowrap">
+<table class="table table-hover m-3">
   <thead>
     <tr>
-      <th width="20%">Judul Pertanyaan</th>
-      <th>Isi Pertanyaan</th>
-      <th width="10%">Jawaban</th>
+      <th style="width: 150px">Judul Pertanyaan</th>
+      <th> Isi Pertanyaan</th>
+      <th style="width: 300px"> Action</th>
     </tr>
   </thead>
   <tbody>
@@ -17,8 +17,11 @@
         
     <tr>
       <td>{{ $item -> judul }}</td>
-      <td>{{ $item -> isi }}</td>
-      <td><a href="/jawaban/{{ $item -> id }} " class="btn btn-primary">Show <i class="right fas fa-angle-right"></i> </a></td>
+      <td style="white-space: pre-wrap">{{ $item -> isi }}</td>
+      <td>
+        <a href="/jawaban/{{ $item -> id }} " class="btn btn-primary">Answer <i class="right fas fa-angle-right"></i> </a>
+        <a href="/pertanyaan/{{ $item -> id }} " class="btn btn-default">Detail <i class="right fas fa-angle-right"></i> </a>
+      </td>
     </tr>
     
     @endforeach

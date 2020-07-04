@@ -13,9 +13,14 @@
 
 Route::get('/', 'PertanyaanController@index' );
 
-Route::get('/pertanyaan', 'PertanyaanController@index' );
-Route::get('/pertanyaan/create', 'PertanyaanController@create' );
-Route::post('/pertanyaan', 'PertanyaanController@store' );
-Route::get('/jawaban/{id}', 'JawabanController@index' );
-Route::post('/jawaban/{id}', 'JawabanController@store' );
+Route::get('/pertanyaan', 'PertanyaanController@index' );           // index pertanyaan
+Route::get('/pertanyaan/create', 'PertanyaanController@create' );   // buat pertanyaan
+Route::post('/pertanyaan', 'PertanyaanController@store' );          // simpan pertanyaan
 
+Route::get('/jawaban/{id}', 'JawabanController@index' );            // index jawaban
+Route::post('/jawaban/{id}', 'JawabanController@store' );           // simpan jawaban
+
+Route::get('/pertanyaan/{id}', 'PertanyaanController@show' );       // detail pertanyaan
+Route::get('/pertanyaan/{id}/edit', 'PertanyaanController@edit' );  // edit pertanyaan
+Route::put('/pertanyaan/{id}', 'PertanyaanController@update' );  // edit pertanyaan
+Route::delete('/pertanyaan/{id}', 'PertanyaanController@delete' );    // hapus pertanyaan
